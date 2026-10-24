@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171317">
+  <meta name="description" content="Portofolio Alina Zulfiana - Desainer Digital Dan Kreator Visual.">
+  <title>Alina Zulfiana - Portofolio</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #171317;
+      --surface: #211b21;
+      --surface-light: #2b232b;
+      --text: #f8f1f6;
+      --muted: #b9aeb8;
+      --pink: #f48fbd;
+      --pink-light: #ffc1db;
+      --line: rgba(255, 241, 249, 0.13);
+      --radius: 22px;
+      --content-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--pink-light);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--content-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(23, 19, 23, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 0.95rem;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--pink);
+      color: var(--bg);
+      font-size: 0.82rem;
+      letter-spacing: -0.07em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--pink-light);
+    }
+
+    .nav-cta,
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 19px;
+      border: 1px solid var(--pink);
+      border-radius: 999px;
+      background: var(--pink);
+      color: #21151c;
+      font-size: 0.88rem;
+      font-weight: 750;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .nav-cta:hover,
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--pink-light);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: grid;
+      min-height: 660px;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 60px;
+      padding-block: 86px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--pink-light);
+      font-size: 0.76rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+    }
+
+    .eyebrow::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--pink);
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 700px;
+      margin-bottom: 22px;
+      font-size: clamp(3.1rem, 7vw, 6rem);
+      font-weight: 760;
+      letter-spacing: -0.075em;
+      line-height: 0.99;
+    }
+
+    h1 span {
+      color: var(--pink);
+    }
+
+    .hero-copy {
+      max-width: 550px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .button-secondary {
+      border-color: var(--line);
+      background: transparent;
+      color: var(--text);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--pink);
+      background: var(--surface);
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-top: 38px;
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #8ed6ad;
+      box-shadow: 0 0 0 5px rgba(142, 214, 173, 0.1);
+    }
+
+    .hero-art {
+      position: relative;
+      display: grid;
+      min-height: 430px;
+      place-items: center;
+    }
+
+    .art-ring {
+      position: absolute;
+      width: min(370px, 90%);
+      aspect-ratio: 1;
+      border: 1px solid rgba(244, 143, 189, 0.25);
+      border-radius: 50%;
+    }
+
+    .art-ring::before,
+    .art-ring::after {
+      position: absolute;
+      border: 1px solid rgba(244, 143, 189, 0.17);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .art-ring::before {
+      inset: 25px;
+    }
+
+    .art-ring::after {
+      inset: 52px;
+    }
+
+    .monogram {
+      position: relative;
+      display: grid;
+      width: min(270px, 68vw);
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 38% 62% 55% 45% / 44% 42% 58% 56%;
+      background: var(--pink);
+      color: #25151f;
+      font-size: clamp(5rem, 12vw, 8.3rem);
+      font-weight: 800;
+      letter-spacing: -0.1em;
+      box-shadow: 22px 26px 0 rgba(244, 143, 189, 0.08);
+      transform: rotate(-7deg);
+    }
+
+    .monogram span {
+      transform: rotate(7deg);
+    }
+
+    .art-label {
+      position: absolute;
+      right: 0;
+      bottom: 42px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .art-label strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      padding-block: 100px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 0;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      letter-spacing: -0.065em;
+      line-height: 1.1;
+    }
+
+    .section-heading p {
+      max-width: 400px;
+      margin-bottom: 3px;
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
+    }
+
+    .about-intro {
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .about-intro strong {
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .about-details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .detail-card {
+      min-height: 138px;
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .detail-card span {
+      display: block;
+      margin-bottom: 11px;
+      color: var(--pink);
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .detail-card strong {
+      font-size: 1rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .project-art {
+      position: relative;
+      display: grid;
+      min-height: 275px;
+      place-items: center;
+      overflow: hidden;
+      background: #47303f;
+    }
+
+    .project-card:nth-child(2) .project-art {
+      background: #292d37;
+    }
+
+    .project-card:nth-child(3) .project-art {
+      background: #3b3430;
+    }
+
+    .project-card:nth-child(4) .project-art {
+      background: #342c43;
+    }
+
+    .project-shape {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 50%;
+    }
+
+    .project-shape::before,
+    .project-shape::after {
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: inherit;
+      content: "";
+    }
+
+    .project-shape::before {
+      inset: 18px -32px;
+      transform: rotate(35deg);
+    }
+
+    .project-shape::after {
+      inset: -24px 32px;
+      transform: rotate(-35deg);
+    }
+
+    .project-word {
+      position: relative;
+      z-index: 1;
+      color: #fff4fa;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 780;
+      letter-spacing: -0.08em;
+      text-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .project-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 21px 23px;
+    }
+
+    .project-info h3 {
+      margin-bottom: 4px;
+      font-size: 1.12rem;
+      letter-spacing: -0.03em;
+    }
+
+    .project-info p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .project-number {
+      color: var(--pink);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      padding: 11px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+      padding: clamp(28px, 6vw, 58px);
+      border: 1px solid rgba(244, 143, 189, 0.35);
+      border-radius: 28px;
+      background: var(--surface);
+    }
+
+    .contact-panel h2 {
+      max-width: 600px;
+      margin-bottom: 12px;
+      font-size: clamp(2.1rem, 5vw, 3.8rem);
+      letter-spacing: -0.065em;
+      line-height: 1.07;
+    }
+
+    .contact-panel p {
+      max-width: 480px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .contact-mark {
+      flex: 0 0 auto;
+      display: grid;
+      width: 68px;
+      height: 68px;
+      place-items: center;
+      border-radius: 22px;
+      background: var(--pink);
+      color: var(--bg);
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .contact-content {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .site-footer {
+      padding-block: 25px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-inner p {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(var(--content-width), calc(100% - 36px));
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 18px 18px;
+        border-bottom: 1px solid var(--line);
+        background: var(--bg);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-links a {
+        padding: 13px 0;
+      }
+
+      .nav-links .nav-cta {
+        align-self: flex-start;
+        margin-top: 8px;
+        padding: 0 19px;
+      }
+
+      .hero {
+        min-height: 0;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-block: 78px 60px;
+      }
+
+      .hero-art {
+        min-height: 350px;
+      }
+
+      .art-label {
+        right: 5%;
+        bottom: 23px;
+      }
+
+      .section {
+        padding-block: 76px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .contact-panel,
+      .contact-content {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .contact-panel {
+        gap: 23px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .project-art {
+        min-height: 235px;
+      }
+
+      .about-details {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .detail-card {
+        min-height: 130px;
+        padding: 16px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigasi Utama">
+      <a class="brand" href="#beranda" aria-label="Alina Zulfiana - Beranda">
+        <span class="brand-mark" aria-hidden="true">AZ</span>
+        <span>Alina Zulfiana</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Buka Menu" aria-expanded="false" aria-controls="nav-links">
+        <span aria-hidden="true">☰</span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#tentang">Tentang</a>
+        <a href="#karya">Karya</a>
+        <a href="#keahlian">Keahlian</a>
+        <a class="nav-cta" href="#kontak">Hubungi Saya <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="beranda">
+      <div>
+        <p class="eyebrow">Portofolio Kreatif</p>
+        <h1>Halo, Saya<br><span>Alina Zulfiana.</span></h1>
+        <p class="hero-copy">Saya Suka Mengubah Ide Menjadi Pengalaman Digital Yang Terasa Hangat, Mudah Digunakan, Dan Penuh Karakter.</p>
+        <div class="hero-actions">
+          <a class="button" href="#karya">Lihat Karya Saya <span aria-hidden="true">↘</span></a>
+          <a class="button button-secondary" href="#tentang">Kenali Saya</a>
+        </div>
+        <p class="hero-note"><span class="status-dot" aria-hidden="true"></span> Terbuka Untuk Proyek Dan Kolaborasi</p>
+      </div>
+      <div class="hero-art" aria-label="Monogram Alina Zulfiana">
+        <div class="art-ring" aria-hidden="true"></div>
+        <div class="monogram" aria-hidden="true"><span>AZ</span></div>
+        <div class="art-label"><strong>Ide Bertemu Visual</strong>Desain Dengan Cerita</div>
+      </div>
+    </section>
+
+    <section class="section" id="tentang">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Sedikit Tentang Saya</p>
+            <h2>Membuat Hal Yang<br>Terasa Berarti.</h2>
+          </div>
+          <p>Perpaduan Antara Rasa Ingin Tahu, Cerita, Dan Desain Yang Memikirkan Penggunanya.</p>
+        </div>
+        <div class="about-grid">
+          <p class="about-intro"><strong>Saya Alina Zulfiana, Kreator Yang Senang Menjelajahi Dunia Desain Digital.</strong> Saya Tertarik Pada Cara Warna, Bentuk, Dan Kata Bekerja Bersama Untuk Membuat Sebuah Ide Lebih Mudah Dipahami. Setiap Proyek Adalah Kesempatan Untuk Belajar Dan Menciptakan Sesuatu Yang Berkesan.</p>
+          <div class="about-details">
+            <div class="detail-card"><span>Fokus</span><strong>Desain Digital</strong></div>
+            <div class="detail-card"><span>Gaya</span><strong>Hangat Dan Berkarakter</strong></div>
+            <div class="detail-card"><span>Proses</span><strong>Riset Hingga Detail</strong></div>
+            <div class="detail-card"><span>Prinsip</span><strong>Sederhana Dan Berguna</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="karya">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Pilihan Karya</p>
+            <h2>Ide Yang Menjadi Visual.</h2>
+          </div>
+          <p>Beberapa Eksplorasi Konsep Untuk Identitas, Produk, Dan Pengalaman Digital.</p>
+        </div>
+        <div class="projects">
+          <article class="project-card">
+            <div class="project-art"><div class="project-shape" aria-hidden="true"></div><span class="project-word">Ruang Rasa</span></div>
+            <div class="project-info"><div><h3>Ruang Rasa</h3><p>Konsep Identitas Kuliner</p></div><span class="project-number">01</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-art"><div class="project-shape" aria-hidden="true"></div><span class="project-word">Sora</span></div>
+            <div class="project-info"><div><h3>Sora Studio</h3><p>Konsep Aplikasi Kreatif</p></div><span class="project-number">02</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-art"><div class="project-shape" aria-hidden="true"></div><span class="project-word">Bumi Baik</span></div>
+            <div class="project-info"><div><h3>Bumi Baik</h3><p>Konsep Kampanye Lingkungan</p></div><span class="project-number">03</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-art"><div class="project-shape" aria-hidden="true"></div><span class="project-word">Senandika</span></div>
+            <div class="project-info"><div><h3>Senandika</h3><p>Konsep Platform Editorial</p></div><span class="project-number">04</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="keahlian">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Yang Saya Kerjakan</p>
+            <h2>Keahlian Dan Eksplorasi.</h2>
+          </div>
+          <p>Ruang Untuk Ide Yang Terstruktur, Tampilan Yang Menarik, Dan Pengalaman Yang Nyaman.</p>
+        </div>
+        <div class="skills-list" aria-label="Daftar Keahlian">
+          <span class="skill">Desain Antarmuka</span>
+          <span class="skill">Pengalaman Pengguna</span>
+          <span class="skill">Identitas Visual</span>
+          <span class="skill">Desain Grafis</span>
+          <span class="skill">Prototipe</span>
+          <span class="skill">Riset Visual</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontak">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="contact-mark" aria-hidden="true">AZ</div>
+          <div class="contact-content">
+            <div>
+              <p class="eyebrow">Mari Terhubung</p>
+              <h2>Punya Ide Menarik?</h2>
+              <p>Saya Terbuka Untuk Berkenalan, Bertukar Ide, Dan Membuat Sesuatu Yang Baik Bersama.</p>
+            </div>
+            <a class="button" href="mailto:?subject=Kolaborasi%20Dengan%20Alina%20Zulfiana">Kirim Email <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Alina Zulfiana</p>
+      <p>Dibuat Dengan Rasa Ingin Tahu Dan Banyak Ide.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Buka Menu" : "Tutup Menu");
+      navLinks.classList.toggle("is-open", !isOpen);
+    });
+
+    navLinks.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Buka Menu");
+        navLinks.classList.remove("is-open");
+      }
+    });
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
